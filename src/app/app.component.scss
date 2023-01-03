@@ -1,0 +1,14 @@
+/* Mouse Circle */
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid white;
+  background-color: white;
+  opacity: 0.1;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+}
