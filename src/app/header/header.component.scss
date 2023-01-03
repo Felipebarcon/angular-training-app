@@ -4,8 +4,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #adb5bd;
+  position: relative;
 }
+
+/* NAV BORDER BOTTOM ANIMATION */
+
+.nav__border-bottom::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgb(0, 183, 255),
+    rgb(255, 48, 255)
+  );
+  height: 2px;
+  animation: slidein 2s ease-in;
+  transition: all 0.2s ease-in;
+  align-self: flex-end;
+}
+
+@keyframes slidein {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.nav__border-bottom::after {
+  content: "";
+  position: absolute;
+}
+
+/* NAV LIST */
 
 .nav--title {
   font-size: 3rem;
@@ -14,10 +48,6 @@
 .nav--list-ul {
   display: flex;
   gap: 6rem;
-}
-
-.nav--list-ul li:hover {
-  color: gold;
 }
 
 .nav--list-ul li {
@@ -30,11 +60,22 @@
   font-size: 1.2rem;
 }
 
-.nav--list-li:hover {
-  color: coral;
-  transition: 0.5s;
-}
-
 .nav--logo {
   width: 15rem;
+}
+
+.nav--list-li:hover {
+  color: rgb(255, 48, 255);
+  animation: scale 0.3s ease-in forwards;
+  transition: all 0.3s ease-in;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(100%);
+  }
+
+  to {
+    transform: scale(200%);
+  }
 }
