@@ -12,6 +12,6 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {}
 
   goToProjects(): void {
-    this.router.navigate(['/projects']);
+    this.router.navigate(['/countries']);
   }
 }

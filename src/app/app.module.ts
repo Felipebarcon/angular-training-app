@@ -6,11 +6,17 @@ import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
-import { ProjectsComponent } from './projects/projects.component';
+import { CountriesComponent } from './countries/countries.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomepageComponent, ProjectsComponent],
-  imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES)],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    HomepageComponent,
+    CountriesComponent,
+  ],
+  imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES), HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
