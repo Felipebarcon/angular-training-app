@@ -9,7 +9,9 @@
 }
 
 .project__cards__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
   justify-items: center;
   align-items: center;
 }
