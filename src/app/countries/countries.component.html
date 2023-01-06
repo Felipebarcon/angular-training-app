@@ -8,7 +8,7 @@
   </div>
 
 
-  <div class="project__cards__container">
+  <div *ngIf="countryData"  class="project__cards__container">
     <div *ngFor="let country of countryData" class="card">
       <div  class="card2">
         <img
@@ -24,6 +24,11 @@
       </div>
     </div>
 
+  </div>
+  <div>
+    <button class="btn btn-primary"
+            (click)="clearCountries(countryData!)">Clear all
+                                                     countries</button>
   </div>
 </div>
 

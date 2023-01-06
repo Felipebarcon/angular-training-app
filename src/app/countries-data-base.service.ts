@@ -19,5 +19,9 @@ export class CountriesDataBaseService {
     );
   }
 
+  deleteCountries(countries: Country[]) {
+    return this.http.delete<Country[]>(`https://restapi.fr/api/countries`);
+  }
+
   constructor(private http: HttpClient) {}
 }

@@ -6,8 +6,6 @@ import { Country } from './country';
   providedIn: 'root',
 })
 export class CountriesService {
-  public countries?: Country[];
-
   constructor(private http: HttpClient) {}
 
   public getData(input: string) {
