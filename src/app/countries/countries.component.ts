@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
 import { Country } from '../country';
 
@@ -7,15 +7,23 @@ import { Country } from '../country';
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss'],
 })
-export class CountriesComponent implements OnInit {
+export class CountriesComponent implements OnInit, OnDestroy {
   constructor(private countryService: CountriesService) {}
 
   public countryData?: Country[];
 
-  ngOnInit(): void {
-    this.countryService.getData().subscribe((data: Country[]) => {
-      this.countryData = data;
-      console.log(this.countryData);
-    });
+  public inputValue: string = '';
+
+  ngOnInit(): void {}
+
+  submitCountry() {
+    this.countryService
+      .getData(this.inputValue)
+      .subscribe((data: Country[]) => {
+        this.countryData = data;
+        console.log(this.countryData);
+      });
   }
+
+  ngOnDestroy() {}
 }

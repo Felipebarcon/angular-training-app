@@ -10,9 +10,9 @@ export class CountriesService {
 
   constructor(private http: HttpClient) {}
 
-  public getData() {
+  public getData(input: string) {
     return this.http.get<Country[]>(
-      `https://restcountries.com/v3.1/name/spain`
+      `https://restcountries.com/v3.1/name/${input}`
     );
   }
 }

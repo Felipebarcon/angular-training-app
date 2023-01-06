@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { CountriesComponent } from './countries/countries.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
     HomepageComponent,
     CountriesComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES), HttpClientModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

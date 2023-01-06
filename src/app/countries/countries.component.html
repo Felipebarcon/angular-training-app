@@ -1,7 +1,8 @@
 <div class="projects__container">
 
   <div class="projects__input">
-    <input #input type="text">
+    <input [(ngModel)]="inputValue" type="text">
+    <button (click)="submitCountry()" class="btn btn-primary">Search</button>
   </div>
 
 
