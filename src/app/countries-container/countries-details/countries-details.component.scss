@@ -1,34 +1,9 @@
-.projects__container {
-  background-color: #2a2a2a;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 10rem;
-  justify-content: center;
-  align-items: center;
-}
-
 .project__cards__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   justify-items: center;
   align-items: center;
-}
-
-.projects__input {
-  display: flex;
-  justify-content: center;
-  height: 5rem;
-  border-radius: 0.5rem;
-  border: none;
-  padding: 0 1rem;
-  font-size: 1.5rem;
-  color: #2a2a2a;
-}
-
-input {
-  width: 100rem;
 }
 
 .card {
@@ -83,10 +58,4 @@ input {
   font-size: 1.4rem;
   margin-bottom: 2.5rem;
   text-transform: uppercase;
-}
-
-.btn-delete-country {
-  margin-top: 1.5rem;
-  position: absolute;
-  transform: translateX(100%);
 }

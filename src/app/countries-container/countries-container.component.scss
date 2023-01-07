@@ -1,0 +1,33 @@
+.countries-container {
+  background-color: #2a2a2a;
+  height: 100vh;
+  padding-top: 10rem;
+}
+
+.project__cards__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.projects__input {
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  padding: 5rem;
+  border: none;
+  font-size: 1.5rem;
+  color: #2a2a2a;
+  background-color: #2a2a2a;
+}
+
+.projects__input button {
+  height: 5rem;
+}
+
+input {
+  width: 100rem;
+  height: 5rem;
+}

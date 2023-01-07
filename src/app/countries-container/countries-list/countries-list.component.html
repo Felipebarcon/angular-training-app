@@ -1,0 +1,7 @@
+<h3 class="mb-20">Liste des pays</h3>
+<ul class="mb-20 list-primary">
+  <li  *ngFor="let country of countries; let index = index">
+    {{ country.name!['common'] }}
+  </li>
+</ul>
+
