@@ -29,4 +29,10 @@ export class CountriesContainerComponent implements OnInit {
         });
       });
   }
+
+  clearCountries() {
+    this.countryService.deleteCountries().subscribe((data: Country[]) => {
+      this.countries!.next(Array.isArray(data) ? data : [data]);
+    });
+  }
 }

@@ -2,7 +2,8 @@
   <input [(ngModel)]="inputValue" type="text">
   <button  class="btn btn-primary"
            (click)="submitCountry()"
-           style="margin-left: 10px">Search
+           style="margin-left: 10px"
+  >Search
   </button>
 </div>
 
@@ -13,4 +14,5 @@
   <app-countries-details [countries]="countries | async" class="flex-50 pl-10"
   ></app-countries-details>
 </div>
+
 

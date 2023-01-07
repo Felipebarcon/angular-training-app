@@ -1,12 +1,4 @@
-import {
-  AfterContentChecked,
-  AfterContentInit,
-  Component,
-  DoCheck,
-  Input,
-  OnChanges,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Country } from '../../country';
 import { CountriesService } from '../../countries.service';
 

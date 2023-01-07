@@ -30,7 +30,7 @@ export class CountriesService {
     );
   }
 
-  deleteCountries(countries: Country[]) {
+  deleteCountries() {
     return this.http.delete<Country[]>(`https://restapi.fr/api/countries`);
   }
 }
