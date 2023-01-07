@@ -19,8 +19,14 @@ export class CountriesContainerComponent implements OnInit {
   ngOnInit(): void {}
 
   submitCountry() {
-    this.countryService.getData(this.inputValue).subscribe((data) => {
-      // this.countryService.countries$.next(data);
-    });
+    this.countryService
+      .getData(this.inputValue)
+      .subscribe((data: Country[]) => {
+        this.countries!.next(Array.isArray(data) ? data : [data]);
+
+        this.countryService.postCountries(data).subscribe((data: Country[]) => {
+          this.countries!.next(Array.isArray(data) ? data : [data]);
+        });
+      });
   }
 }
