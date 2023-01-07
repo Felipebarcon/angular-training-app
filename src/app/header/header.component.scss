@@ -19,7 +19,7 @@
     rgb(255, 48, 255)
   );
   height: 2px;
-  animation: slidein 3s backwards;
+  animation: slidein 3s backwards infinite;
   transition: all 0.2s ease-in;
   align-self: flex-end;
 }

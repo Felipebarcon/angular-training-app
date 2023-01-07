@@ -13,7 +13,7 @@ export class CountriesService {
 
   constructor(private http: HttpClient) {}
 
-  public getData(input: string): Observable<Country[]> {
+  public getData(input: string) {
     return this.http.get<Country[]>(
       `https://restcountries.com/v3.1/name/${input}`
     );
