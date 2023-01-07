@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../countries.service';
 import { Country } from '../country';
-import { CountriesDataBaseService } from '../countries-data-base.service';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-countries',
@@ -9,34 +10,15 @@ import { CountriesDataBaseService } from '../countries-data-base.service';
   styleUrls: ['./countries.component.scss'],
 })
 export class CountriesComponent implements OnInit {
-  constructor(
-    private countryService: CountriesService,
-    private countryDb: CountriesDataBaseService
-  ) {}
-
-  public countryData?: Country[];
+  public countryData$?: Observable<Country[]> =
+    this.countryService.countryData$;
 
   public inputValue: string = '';
+  constructor(private countryService: CountriesService) {}
 
-  ngOnInit(): void {
-    this.countryDb.addCountries().subscribe((data: Country[]) => {
-      this.countryData = Array.isArray(data) ? data : [data];
-    });
-  }
-
-  submitCountry() {
-    this.countryService
-      .getData(this.inputValue)
-      .subscribe((data: Country[]) => {
-        this.countryData = Array.isArray(data) ? data : [data];
-
-        this.countryDb.postCountries(data).subscribe((response: Country[]) => {
-          this.countryData = Array.isArray(response) ? response : [response];
-        });
-      });
-  }
+  ngOnInit(): void {}
 
   clearCountries(countryData: Country[]) {
-    this.countryDb.deleteCountries(countryData).subscribe();
+    this.countryService.deleteCountries(countryData).subscribe();
   }
 }
