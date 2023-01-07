@@ -7,9 +7,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CountriesService {
-  public countryData$: BehaviorSubject<Country[]> = new BehaviorSubject<
-    Country[]
-  >([]);
   constructor(private http: HttpClient) {}
 
   public getData(input: string) {
