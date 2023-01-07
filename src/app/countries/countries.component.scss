@@ -50,6 +50,7 @@ input {
   background-color: #1a1a1a;
   transition: all 0.2s;
   color: #bccef8;
+  position: relative;
 }
 
 .card2:hover {
@@ -82,4 +83,10 @@ input {
   font-size: 1.4rem;
   margin-bottom: 2.5rem;
   text-transform: uppercase;
+}
+
+.btn-delete-country {
+  margin-top: 1.5rem;
+  position: absolute;
+  transform: translateX(100%);
 }

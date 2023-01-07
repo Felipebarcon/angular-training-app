@@ -9,7 +9,7 @@
 
 
   <div *ngIf="countryData"  class="project__cards__container">
-    <div *ngFor="let country of countryData" class="card">
+    <div *ngFor="let country of countryData " class="card">
       <div  class="card2">
         <img
           src="{{ country.flags!['png'] }}"
@@ -22,13 +22,11 @@
             {{ country.population | number: '0.0-2' }}  👨‍👩‍👦‍👦</h4>
         </div>
       </div>
+      <button (click)="clearCountries(countryData)" *ngIf="countryData" type="button"
+              class="btn btn-primary btn-delete-country">
+        Supprimer</button>
     </div>
 
-  </div>
-  <div>
-    <button class="btn btn-primary"
-            (click)="clearCountries(countryData!)">Clear all
-                                                     countries</button>
   </div>
 </div>
 
