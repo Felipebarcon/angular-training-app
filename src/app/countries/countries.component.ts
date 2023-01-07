@@ -20,7 +20,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.countryDb.addCountries().subscribe((data: Country[]) => {
-      this.countryData = data;
+      this.countryData = Array.isArray(data) ? data : [data];
     });
   }
 
@@ -28,12 +28,19 @@ export class CountriesComponent implements OnInit, OnDestroy {
     this.countryService
       .getData(this.inputValue)
       .subscribe((data: Country[]) => {
-        this.countryData = data;
+        this.countryData = Array.isArray(data) ? data : [data];
 
         this.countryDb.postCountries(data).subscribe((response: Country[]) => {
-          this.countryData = response;
+          this.countryData = Array.isArray(response) ? response : [response];
         });
       });
+  }
+
+  clearCountries(countryData: Country[]) {
+    this.countryDb.deleteCountries(countryData).subscribe();
+    this.countryData = this.countryData?.filter(
+      (country) => country !== country
+    );
   }
 
   ngOnDestroy() {}

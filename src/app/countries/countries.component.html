@@ -3,9 +3,11 @@
   <div class="projects__input">
     <input [(ngModel)]="inputValue" type="text">
     <button  class="btn btn-primary"
+             (click)="submitCountry()"
             style="margin-left: 10px">Search
     </button>
   </div>
+
 
   <div class="project__cards__container">
     <div *ngFor="let country of countryData" class="card">

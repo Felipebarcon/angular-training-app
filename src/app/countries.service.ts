@@ -7,26 +7,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CountriesService {
+  public countries?: Country[];
+
   constructor(private http: HttpClient) {}
 
   public getData(input: string) {
     return this.http.get<Country[]>(
       `https://restcountries.com/v3.1/name/${input}`
     );
-  }
-
-  addCountries() {
-    return this.http.get<Country[]>(`https://restapi.fr/api/countries`);
-  }
-
-  postCountries(country: Country[]) {
-    return this.http.post<Country[]>(
-      `https://restapi.fr/api/countries`,
-      country
-    );
-  }
-
-  deleteCountries(countries: Country[]): Observable<Country[]> {
-    return this.http.delete<Country[]>(`https://restapi.fr/api/countries/`);
   }
 }
