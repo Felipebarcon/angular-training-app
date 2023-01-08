@@ -50,13 +50,13 @@ button:disabled {
   --text-regular: #444;
 }
 
-body {
+body,
+html {
   font-family: var(--font-family);
   color: var(--text-regular);
-}
-
-html {
   font-size: 62.5%;
+  height: 100%;
+  width: 100%;
 }
 
 // LAYOUT
