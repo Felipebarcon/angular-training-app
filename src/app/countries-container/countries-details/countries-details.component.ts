@@ -1,9 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Country } from '../../country';
 import { CountriesService } from '../../countries.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-countries-details',
@@ -11,16 +8,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./countries-details.component.scss'],
 })
 export class CountriesDetailsComponent implements OnInit {
-  public country!: Observable<Country>;
-  @Input() public countries: Country[] | null = null;
-  constructor(
-    private countriesService: CountriesService,
-    private activatedRoute: ActivatedRoute,
-    private http: HttpClient
-  ) {}
+  @Input() public countries: Country[] | null;
+
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.countriesService.fetchCountries().subscribe((data) => {
+    this.countriesService.fetchCountries().subscribe((data: Country[]) => {
       this.countries = data;
     });
   }

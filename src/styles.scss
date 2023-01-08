@@ -210,8 +210,11 @@ html {
 
 .active {
   background-color: var(--secondary);
-  color: white;
+  color: black;
   border: none;
+  width: 25rem;
+  border-radius: 5px;
+  padding: 1rem;
 }
 
 // DEBUG
