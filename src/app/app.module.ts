@@ -12,6 +12,9 @@ import { CountriesListComponent } from './countries-container/countries-list/cou
 
 import { CountriesContainerComponent } from './countries-container/countries-container.component';
 import { CountriesDetailsComponent } from './countries-container/countries-details/countries-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/modules/material.module';
+import { FormCountriesComponent } from './form-countries/form-countries.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { CountriesDetailsComponent } from './countries-container/countries-detai
     CountriesContainerComponent,
     CountriesListComponent,
     CountriesDetailsComponent,
+    FormCountriesComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

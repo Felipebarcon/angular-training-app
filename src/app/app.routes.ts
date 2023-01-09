@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CountriesContainerComponent } from './countries-container/countries-container.component';
 import { CountriesDetailsComponent } from './countries-container/countries-details/countries-details.component';
+import { FormCountriesComponent } from './form-countries/form-countries.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -20,5 +21,9 @@ export const APP_ROUTES: Routes = [
       { path: ':index', component: CountriesDetailsComponent },
       { path: '', redirectTo: '0', pathMatch: 'full' },
     ],
+  },
+  {
+    path: 'forms',
+    component: FormCountriesComponent,
   },
 ];
