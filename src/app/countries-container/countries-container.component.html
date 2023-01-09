@@ -1,8 +1,8 @@
 <div class="projects__input">
   <input [(ngModel)]="inputValue" type="text">
   <button  class="btn btn-primary"
-           (click)="submitCountry(inputValue)"
            style="margin-left: 10px"
+           (click)="submitCountry(inputValue)"
   >Search
   </button>
 </div>
@@ -11,7 +11,8 @@
   <app-countries-container-list [countries]="countries | async"
                                 class="flex-50 pr-10"
   ></app-countries-container-list>
-<router-outlet></router-outlet>
+<app-countries-details [countries]="countries | async"
+                      class="flex-50 pr-10"></app-countries-details>
 </div>
 
 

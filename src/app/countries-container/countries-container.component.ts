@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountriesService } from '../countries.service';
+import { CountriesService } from '../shared/services/countries.service';
 import { Country } from '../country';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
