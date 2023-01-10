@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CountriesService } from '../shared/services/countries.service';
 import { Country } from '../country';
-import { BehaviorSubject, filter, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -60,5 +60,13 @@ export class CountriesContainerComponent implements OnInit {
             });
           });
       });
+  }
+
+  onCountrySelected(countrySelected: Country) {
+    this.countries$!.next(
+      this.countries$!.getValue().filter(
+        (country) => country == countrySelected
+      )
+    );
   }
 }
