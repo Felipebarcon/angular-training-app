@@ -1,13 +1,22 @@
-<div *ngIf="countries$ | async as countries" class="project__cards__container">
-  <div *ngFor="let country of countries$ | async ; let index = index"
-       [routerLink]="[index]"
-       class="card" (click)="selectCountry(country)">
+<div
+  *ngIf="countries$ | async as countries"
+  class="project__cards__container"
+>
+  <div
+    (click)="selectCountry(country)"
+    *ngFor="let country of countries$ | async ; let index = index"
+    [routerLink]="[index]"
+    class="card"
+  >
 
-    <div  class="card2" [routerLink]="['countries']">
+    <div
+      [routerLink]="['countries']"
+      class="card2"
+    >
       <img
-        src="{{ country.flags!['png'] }}"
         alt=""
         class="country__img"
+        src="{{ country.flags!['png'] }}"
       >
       <div class="country__data">
         <h3 class="country__name">{{ country.name!['common'] }}</h3>

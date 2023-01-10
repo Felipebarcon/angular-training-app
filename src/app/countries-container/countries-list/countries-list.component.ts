@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Country } from '../../country';
+import { Country } from '../../shared/interfaces/country';
 import { CountriesService } from '../../shared/services/countries.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -12,6 +12,7 @@ export class CountriesListComponent implements OnInit {
   @Input() countries$?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
     Country[] | []
   >([]);
+
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {

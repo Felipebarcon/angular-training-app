@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../shared/services/countries.service';
-import { Country } from '../country';
+import { Country } from '../shared/interfaces/country';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,22 +10,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./countries-container.component.scss'],
 })
 export class CountriesContainerComponent implements OnInit {
+  public countries$?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
+    Country[]
+  >([]);
+  public inputValue: string = '';
+  public countryName: string = '';
+  public submittedCountry: Country;
+  public filteredCountries$: Observable<Country[]>;
+
   constructor(
     private countriesService: CountriesService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
-
-  public countries$?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
-    Country[]
-  >([]);
-
-  public inputValue: string = '';
-
-  public countryName: string = '';
-  public submittedCountry: Country;
-
-  public filteredCountries$: Observable<Country[]>;
 
   ngOnInit(): void {
     /*    this.countriesService.countries$.subscribe((countries: Country[]) => {

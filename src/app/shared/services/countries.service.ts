@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, filter, map, Observable, tap } from 'rxjs';
-import { Country } from '../../country';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Country } from '../interfaces/country';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,7 @@ export class CountriesService {
     Country[] | []
   >([]);
 
-  constructor(private http: HttpClient) {
-    console.log('[Service: ]', this.countries$);
-  }
+  constructor(private http: HttpClient) {}
 
   public getCountries(input: string) {
     return this.http.get<Country[]>(

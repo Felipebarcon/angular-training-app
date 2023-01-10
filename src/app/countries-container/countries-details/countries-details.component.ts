@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Country } from '../../country';
+import { Country } from '../../shared/interfaces/country';
 import { CountriesService } from '../../shared/services/countries.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -20,11 +20,10 @@ export class CountriesDetailsComponent implements OnInit {
     this.countriesService.countries$.subscribe((countries: Country[]) => {
       this.countries$!.next(countries);
     });
-    console.log('[Details: ]', this.countries$);
   }
 
   selectCountry(country: Country) {
-    console.log(country);
+    console.log('[Output Details Component: ]', country);
     this.countrySelected.emit(country);
   }
 }
