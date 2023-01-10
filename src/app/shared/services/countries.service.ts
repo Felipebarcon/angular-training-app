@@ -22,7 +22,7 @@ export class CountriesService {
   }
 
   fetchCountries() {
-    return this.http.get<Country[]>(`https://restapi.fr/api/countriesapp`).pipe(
+    return this.http.get<Country[]>(`https://restapi.fr/api/countries`).pipe(
       tap((countries: Country[]) => {
         this.countries$.next(countries);
       })
@@ -31,7 +31,7 @@ export class CountriesService {
 
   postCountries(country: Country): Observable<Country> {
     return this.http
-      .post<Country>(`https://restapi.fr/api/countriesapp`, country)
+      .post<Country>(`https://restapi.fr/api/countries`, country)
       .pipe(
         tap((country: Country) => {
           this.countries$.next([country]);
@@ -40,6 +40,6 @@ export class CountriesService {
   }
 
   deleteCountries() {
-    return this.http.delete<Country[]>(`https://restapi.fr/api/countriesapp`);
+    return this.http.delete<Country[]>(`https://restapi.fr/api/countries`);
   }
 }
