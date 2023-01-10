@@ -2,17 +2,16 @@
   <input [(ngModel)]="inputValue" type="text">
   <button  class="btn btn-primary"
            style="margin-left: 10px"
-           (click)="submitCountry(inputValue)"
+           (click)="submitCountry()"
   >Search
   </button>
 </div>
 
 <div class="container countries-container d-flex flex-row">
-  <app-countries-container-list [countries]="countries | async"
-                                class="flex-50 pr-10"
-  ></app-countries-container-list>
-<app-countries-details [countries]="countries | async"
-                      class="flex-50 pr-10"></app-countries-details>
+  <app-countries-list [countries$]="countries$"
+                      class="flex-50 pr-10"></app-countries-list>
+<app-countries-details [countries$]="countries$"
+                       class="flex-50 pr-10"></app-countries-details>
 </div>
 
 

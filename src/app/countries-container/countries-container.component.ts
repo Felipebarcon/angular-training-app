@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../shared/services/countries.service';
 import { Country } from '../country';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { isArray } from '@angular/compiler-cli/src/ngtsc/annotations/common';
 
 @Component({
   selector: 'app-countries-container',
@@ -10,27 +10,29 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./countries-container.component.scss'],
 })
 export class CountriesContainerComponent implements OnInit {
-  constructor(
-    private countryService: CountriesService,
-    private http: HttpClient
-  ) {}
+  constructor(private countriesService: CountriesService) {}
 
-  public countries?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
+  public countries$?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
     Country[]
   >([]);
 
   public inputValue: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.countries$); // log the countries$ subject to the console
+    this.countriesService.countries$.subscribe((countries: Country[]) => {
+      this.countries$!.next(countries);
+    });
+  }
 
-  submitCountry(input: string) {
-    this.http
-      .get(`https://restcountries.com/v3.1/name/${input}`)
-      .subscribe((data: Country) => {
-        this.countryService
-          .postCountries(data as Country[])
-          .subscribe((response: Country[]) => {
-            this.countries!.next(response);
+  submitCountry() {
+    this.countriesService
+      .getCountries(this.inputValue)
+      .subscribe((data: Country[]) => {
+        this.countriesService
+          .postCountries(data as Country)
+          .subscribe((country: Country) => {
+            this.countries$!.next([country]);
           });
       });
   }

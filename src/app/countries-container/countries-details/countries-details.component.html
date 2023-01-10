@@ -1,5 +1,5 @@
-<div class="project__cards__container">
-  <div *ngFor="let country of countries" class="card">
+<div *ngIf="countries$ | async as countries" class="project__cards__container">
+  <div *ngFor="let country of countries$ | async" class="card">
 
     <div  class="card2">
       <img
