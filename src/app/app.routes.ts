@@ -26,4 +26,8 @@ export const APP_ROUTES: Routes = [
     path: 'forms',
     component: FormCountriesComponent,
   },
+  {
+    path: 'search',
+    component: CountriesContainerComponent,
+  },
 ];

@@ -8,9 +8,31 @@
 </div>
 
 <div class="container countries-container d-flex flex-row">
-  <app-countries-list [countries$]="countries$"
+
+  <app-countries-list  [countries$]="countries$"
                       class="flex-50 pr-10"></app-countries-list>
-<router-outlet></router-outlet>
+
+  <div *ngIf="countryName" class="flex-50">
+    <div *ngFor="let country of filteredCountries$ | async" class="card">
+      <div  class="card2">
+        <img
+          src="{{ country.flags!['png'] }}"
+          alt=""
+          class="country__img"
+        >
+        <div class="country__data">
+          <h3 class="country__name">{{ country.name!['common'] }}</h3>
+          <h4 class="country__population">Population:
+            {{ country.population | number: '0.0-2' }}  👨‍👩‍👦‍👦</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-countries-details (countrySelected)="onCountrySelected($event)"
+></app-countries-details>
 </div>
+
+
 
 

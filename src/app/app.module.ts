@@ -33,6 +33,7 @@ import { FormCountriesComponent } from './form-countries/form-countries.componen
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

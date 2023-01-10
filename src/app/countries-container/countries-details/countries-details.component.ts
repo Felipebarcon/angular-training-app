@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Country } from '../../country';
 import { CountriesService } from '../../shared/services/countries.service';
 import { BehaviorSubject } from 'rxjs';
@@ -12,6 +12,7 @@ export class CountriesDetailsComponent implements OnInit {
   @Input() countries$?: BehaviorSubject<Country[] | []> = new BehaviorSubject<
     Country[] | []
   >([]);
+  @Output() countrySelected = new EventEmitter<Country>();
 
   constructor(private countriesService: CountriesService) {}
 
@@ -20,5 +21,10 @@ export class CountriesDetailsComponent implements OnInit {
       this.countries$!.next(countries);
     });
     console.log('[Details: ]', this.countries$);
+  }
+
+  selectCountry(country: Country) {
+    console.log(country);
+    this.countrySelected.emit(country);
   }
 }

@@ -1,7 +1,9 @@
 <div *ngIf="countries$ | async as countries" class="project__cards__container">
-  <div *ngFor="let country of countries$ | async" class="card">
+  <div *ngFor="let country of countries$ | async ; let index = index"
+       [routerLink]="[index]"
+       class="card" (click)="selectCountry(country)">
 
-    <div  class="card2">
+    <div  class="card2" [routerLink]="['countries']">
       <img
         src="{{ country.flags!['png'] }}"
         alt=""

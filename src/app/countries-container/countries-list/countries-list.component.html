@@ -1,8 +1,10 @@
 <div *ngIf="countries$ | async as countries">
   <h3 class="mb-20 title">Liste des pays</h3>
   <ul class="mb-20 list-primary">
-    <li [routerLink]="[index]" routerLinkActive="active"  *ngFor="let country of
-  countries$ | async ; let
+    <li [routerLink]="[index]"
+         routerLinkActive="active"  *ngFor="let
+    country of
+  countries; let
   index =
   index ">
       {{ country.name!['common']}}
