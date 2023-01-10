@@ -10,8 +10,7 @@
 <div class="container countries-container d-flex flex-row">
   <app-countries-list [countries$]="countries$"
                       class="flex-50 pr-10"></app-countries-list>
-<app-countries-details [countries$]="countries$"
-                       class="flex-50 pr-10"></app-countries-details>
+<router-outlet></router-outlet>
 </div>
 
 

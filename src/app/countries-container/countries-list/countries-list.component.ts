@@ -15,9 +15,8 @@ export class CountriesListComponent implements OnInit {
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.countriesService.countries$.subscribe((countries: Country[]) => {
-      this.countries$!.next(countries);
-      console.log('[List: ]', this.countries$);
-    });
+    this.countriesService
+      .fetchCountries()
+      .subscribe((data: Country[]) => this.countries$!.next(data));
   }
 }
