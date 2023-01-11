@@ -4,4 +4,5 @@ export interface Country {
   flags?: { [key: string]: string };
   population?: string;
   area?: number;
+  _id?: string;
 }

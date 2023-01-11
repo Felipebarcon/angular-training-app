@@ -14,7 +14,8 @@ import { CountriesContainerComponent } from './countries-container/countries-con
 import { CountriesDetailsComponent } from './countries-container/countries-details/countries-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/modules/material.module';
-import { FormCountriesComponent } from './form-countries/form-countries.component';
+import { FormCountriesComponent } from './countries-container/form-countries/form-countries.component';
+import { CountriesSearchComponent } from './countries-container/countries-search/countries-search.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormCountriesComponent } from './form-countries/form-countries.componen
     CountriesListComponent,
     CountriesDetailsComponent,
     FormCountriesComponent,
+    CountriesSearchComponent,
   ],
   imports: [
     BrowserModule,

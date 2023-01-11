@@ -1,0 +1,27 @@
+<div
+  *ngIf="submittedCountry"
+  class="search__cards__container"
+>
+  <div
+    class="search__card"
+  >
+
+    <div
+      [routerLink]="['/countries']"
+      class="search__card2"
+    >
+      <img
+        alt=""
+        class="search__country__img"
+        src="{{ submittedCountry.flags!['png'] }}"
+      >
+      <div class="search__country__data">
+        <h3
+          class="search__country__name"
+        >{{ submittedCountry.name!['common'] }}</h3>
+        <h4 class="search__country__population">Population:
+          {{ submittedCountry.population | number: '0.0-2' }}  👨‍👩‍👦‍👦</h4>
+      </div>
+    </div>
+  </div>
+</div>
