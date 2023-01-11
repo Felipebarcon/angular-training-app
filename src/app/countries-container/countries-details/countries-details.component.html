@@ -3,14 +3,12 @@
   class="project__cards__container"
 >
   <div
-    (click)="selectCountry(country)"
     *ngFor="let country of countries$ | async ; let index = index"
     [routerLink]="[index]"
     class="card"
   >
 
     <div
-      [routerLink]="['countries']"
       class="card2"
     >
       <img

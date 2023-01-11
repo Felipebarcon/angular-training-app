@@ -11,7 +11,14 @@ export class CountriesService {
     Country[] | []
   >([]);
 
+  private submittedCountry$ = new BehaviorSubject<Country | null>(null);
+  public currentCountry = this.submittedCountry$.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  updateSearchCountry(country: Country) {
+    this.submittedCountry$.next(country);
+  }
 
   public getCountries(input: string) {
     return this.http.get<Country[]>(

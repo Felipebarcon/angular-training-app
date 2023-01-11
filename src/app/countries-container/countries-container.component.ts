@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../shared/services/countries.service';
 import { Country } from '../shared/interfaces/country';
-import { BehaviorSubject, map, Observable } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-countries-container',
@@ -14,35 +14,14 @@ export class CountriesContainerComponent implements OnInit {
     Country[]
   >([]);
   public inputValue: string = '';
-  public countryName: string = '';
   public submittedCountry: Country;
-  public filteredCountries$: Observable<Country[]>;
 
   constructor(
     private countriesService: CountriesService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
 
-  ngOnInit(): void {
-    /*    this.countriesService.countries$.subscribe((countries: Country[]) => {
-      this.countries$!.next(countries);
-    });
-    this.route.queryParams.subscribe((params) => {
-      this.countryName = params['country'];
-    });*/
-    this.route.queryParams.subscribe((params) => {
-      this.countryName = params['country'];
-    });
-    this.countries$ = this.countriesService.countries$;
-    this.filteredCountries$ = this.countries$.pipe(
-      map((countries) =>
-        countries.filter(
-          (country) => country.name!['common'] === this.countryName
-        )
-      )
-    );
-  }
+  ngOnInit(): void {}
 
   submitCountry() {
     this.countriesService
@@ -51,19 +30,11 @@ export class CountriesContainerComponent implements OnInit {
         this.countriesService
           .postCountries(data as Country)
           .subscribe((country: Country) => {
-            this.submittedCountry = country;
+            this.countriesService.updateSearchCountry(country);
             this.router.navigate(['search'], {
               queryParams: { country: country.name!['common'] },
             });
           });
       });
-  }
-
-  onCountrySelected(countrySelected: Country) {
-    this.countries$!.next(
-      this.countries$!.getValue().filter(
-        (country) => country == countrySelected
-      )
-    );
   }
 }
