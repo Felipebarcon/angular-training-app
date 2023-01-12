@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../../shared/interfaces/country';
 import { CountriesService } from '../../shared/services/countries.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-countries-search',
@@ -10,7 +11,10 @@ import { CountriesService } from '../../shared/services/countries.service';
 export class CountriesSearchComponent implements OnInit {
   public submittedCountry: Country;
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(
+    private countriesService: CountriesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.countriesService.currentCountry.subscribe((country) => {
@@ -18,5 +22,9 @@ export class CountriesSearchComponent implements OnInit {
         this.submittedCountry = country;
       }
     });
+  }
+
+  editCountry() {
+    this.router.navigate(['/forms']);
   }
 }

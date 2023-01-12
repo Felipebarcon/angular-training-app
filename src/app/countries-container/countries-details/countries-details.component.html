@@ -3,7 +3,10 @@
   class="project__cards__container"
 >
   <div
-    *ngFor="let country of countries$ | async ; let index = index"
+    (click)="selectCountry(country)"
+    *ngFor="let country of countries$ | async;
+    let index =
+    index"
     [routerLink]="[index]"
     class="card"
   >
@@ -17,7 +20,7 @@
         src="{{ country.flags!['png'] }}"
       >
       <div class="country__data">
-        <h3 class="country__name">{{ country.name!['common'] }}</h3>
+        <h3 class="country__name">{{ country.name!['common']}}</h3>
         <h4 class="country__population">Population:
           {{ country.population | number: '0.0-2' }}  👨‍👩‍👦‍👦</h4>
       </div>

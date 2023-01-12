@@ -15,22 +15,18 @@ export const APP_ROUTES: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'countries',
-    component: CountriesContainerComponent,
-    children: [
-      {
-        path: ':index',
-        component: CountriesSearchComponent,
-      },
-      { path: '', redirectTo: '0', pathMatch: 'full' },
-    ],
-  },
-  {
     path: 'forms',
     component: FormCountriesComponent,
+    pathMatch: 'full',
   },
+  {
+    path: 'countries',
+    component: CountriesContainerComponent,
+  },
+
   {
     path: 'search',
     component: CountriesSearchComponent,
+    pathMatch: 'full',
   },
 ];

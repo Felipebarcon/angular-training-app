@@ -15,6 +15,7 @@ export class CountriesContainerComponent implements OnInit {
   >([]);
   public inputValue: string = '';
   public submittedCountry: Country;
+  public search = '';
 
   constructor(
     private countriesService: CountriesService,

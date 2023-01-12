@@ -2,6 +2,7 @@
   <input
     [(ngModel)]="inputValue"
     type="text"
+
   >
   <button
     (click)="submitCountry()"
@@ -18,9 +19,10 @@
     class="flex-50 pr-10"
   ></app-countries-list>
 
-  <app-countries-details
-  ></app-countries-details>
-  <app-countries-search *ngIf="submittedCountry ==! submittedCountry"></app-countries-search>
+  <app-countries-details [search]="search"></app-countries-details>
+  <app-countries-search
+    *ngIf="submittedCountry ==! submittedCountry"
+  ></app-countries-search>
 </div>
 
 

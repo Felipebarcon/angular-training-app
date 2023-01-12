@@ -1,17 +1,25 @@
 <nav class="nav">
   <img
+    [routerLink]="['']"
     alt="logo"
     class="nav--logo"
     src="../../assets/img/Logo.png"
-    [routerLink]="['']"
   >
   <h1 class="nav--title">Countries App</h1>
 
   <ul class="nav--list-ul">
 
-    <li class="nav--list-li" [routerLink]="['countries']">Countries</li>
+    <li
+      [routerLink]="['countries']"
+      class="nav--list-li"
+    >Countries
+    </li>
 
-    <li class="nav--list-li" [routerLink]="['forms']">Forms</li>
+    <li
+      [routerLink]="['/forms']"
+      class="nav--list-li"
+    >Forms
+    </li>
 
     <li class="nav--list-li"><a
       href="https://github.com/Felipebarcon"

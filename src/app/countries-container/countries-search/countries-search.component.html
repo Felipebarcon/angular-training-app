@@ -23,5 +23,16 @@
           {{ submittedCountry.population | number: '0.0-2' }}  👨‍👩‍👦‍👦</h4>
       </div>
     </div>
+    <div class="d-flex flex-row flex-justify-content-between">
+      <button
+        (click)="editCountry()"
+        class="btn btn-primary"
+        routerLink="/forms"
+        style="margin-top: 50px"
+      >Edit Country
+      </button>
+    </div>
   </div>
+
 </div>
+
